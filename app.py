@@ -6,7 +6,7 @@ import qrcode
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.db'
 db = SQLAlchemy(app)
 
 
@@ -18,7 +18,7 @@ class Answer(db.Model):
 
 # Generate a QR code
 def generate_qr():
-    url = "http://127.0.0.1:5000/"  # Change this to your hosted URL when deploying
+    url = "https://flask-quiz-9pjm.onrender.com/"  # Change this to your hosted URL when deploying
     qr = qrcode.make(url)
     qr.save("static/quiz_qr.png")
 
